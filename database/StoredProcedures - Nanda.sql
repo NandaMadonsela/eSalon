@@ -110,3 +110,40 @@ BEGIN
 			`Sub_Letter_id` = sID;
 END // 
 DELIMITER ;
+--Role
+
+DELIMITER//
+CREATE PROCEDURE spRole_Create
+  (
+   IN Name VARCHAR(50)
+  )
+
+BEGIN
+   DECLARE insertId  INT;
+   INSERT
+       INTO `Role`(
+               `Name`
+             )
+       vALUES ( Name)
+   SET insertId= LAST_INSERT_ID();
+   SELECT insertId;
+END
+DELIMITER;
+
+DELIMITER//
+CREATE PROCEDURE spRole_Update
+(
+ IN Name VARCHAR(50)
+)
+BEING
+    UPDATE 
+     `Role`
+   SET
+`Role`= Role
+
+WHERE 
+   `Role_ID`= Role_id;
+
+END
+DELIMITER;
+
